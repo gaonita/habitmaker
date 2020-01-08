@@ -1,0 +1,38 @@
+body{
+    font-family: 'Schoolbell', cursive;
+}
+
+.header {
+    margin: 50px;
+}
+
+.add{
+    font-size: 40px;
+    text-align: center;
+}
+
+.createSection{
+    display: flex;
+    justify-content: center;
+
+}
+
+.createBox{
+    padding: 20px;
+    width: 500px;
+    height: 300px;
+}
+
+
+.listSection{
+    display: flex;
+    justify-content: center;
+}
+
+.listBox{
+    /*border: solid 1px cadetblue;*/
+    padding: 50px;
+    width: 500px;
+    height: 300px;
+}
+
