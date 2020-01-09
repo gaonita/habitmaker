@@ -15,14 +15,14 @@ class TodoList extends React.Component {
             <div key={i.taskId}>
                 <ul>
                     <li>
-                        <h2><Link to={`/${i.taskId}`}> {i.title} / {i.userId}</Link>
+                        <p className='taskText'><Link style={{textDecoration:'none', color:'black'}} to={`/${i.taskId}`}> {i.title} / {i.userId}</Link>
                             <button style={{marginLeft: '50px', border: 'none'}}
                                     onClick={() => {
                                         this.props.deleteTask(i.taskId)
                                     }
                                     }>delete
                             </button>
-                        </h2>
+                        </p>
                     </li>
                 </ul>
             </div>

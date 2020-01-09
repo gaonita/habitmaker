@@ -19,7 +19,7 @@ const Create = (props) => {
                         <input value={user} onChange={(event) => setUser(event.target.value)}/>
                     </p>
                     <button onClick={() => {
-                        props.createTask(title, user)
+                        props.createTask(title, user);
                         props.history.goBack()
                     }}>submit
                     </button>
