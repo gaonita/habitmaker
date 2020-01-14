@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Bar, Pie, StackedBar} from 'react-roughviz'
+// import {Bar, Pie, StackedBar} from 'react-roughviz'
 import './App.css'
 
 const Header = () => {
@@ -10,9 +10,11 @@ const Header = () => {
                 <h1 className='headerText'>Habit Maker</h1>
             </Link>
 
+            <div className='add'>
             <Link style={{textDecoration: 'none', color: 'black'}} to="/new">
-                <div className='add'><p className='addText'>+ new habit</p></div>
+                <p className='addText'>+ new habit</p>
             </Link>
+            </div>
 
             {/*<h3>Bar</h3>*/}
             {/*<Bar*/}

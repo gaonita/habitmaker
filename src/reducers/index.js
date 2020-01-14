@@ -1,25 +1,44 @@
-const todosReducer = (state = [], action) => {
+import {REQUEST, SUCCESS, CREATE_HABIT, DELETE_HABIT, FETCH_HABIT} from "../actions/types";
+
+const defaultState = {
+    habits: [],
+    isFetching: false
+};
+
+const todosReducer = (state = defaultState, action) => {
     switch (action.type) {
-        case 'FETCH_TODOS':
-            return [...state,...action.payload];
-        case 'CREATE_TASK':
-            console.log('create reducer works!', action.payload);
-            return [...state, action.payload];
-        case 'DELETE_TASK':
+        case REQUEST:
+            return {...state, isFetching: true};
+        case SUCCESS:
+            return {
+                ...state,
+                isFetching: false,
+                habits: action.payload
+            };
+        case CREATE_HABIT:
+            return {
+                ...state,
+                isFetching: false,
+                habits: state.habits
+            };
+        case FETCH_HABIT:
+            console.log(action.payload);
+            return{
+                ...state,
+                isFetching:false,
+                habits: [action.payload]
+            };
+        case DELETE_HABIT:
             console.log('delete reducer works!', action.payload);
-            return [...state.filter(i => i.taskId !== action.payload)];
-        // case 'FETCH_TASK':
-        //     console.log('fetch reducer works!', action.payload);
-        //     return [...state.find(i=> i.taskId === action.payload)];
-        // case 'UPDATE_TASK':
-        //     console.log('update reducer works!');
-        //     return[...state.map(i => i.taskId === action.payload?
-        //                         {...i, title:action.title} : {...i})];
+            return {
+                ...state,
+                isFetching:false,
+                };
         default:
             return state;
     }
 };
 
-export const getTask = (state, id) => state.find(i=> i.taskId === id);
+// export const getTask = (state, id) => state.habits.find(i => i.id === id);
 
 export default todosReducer

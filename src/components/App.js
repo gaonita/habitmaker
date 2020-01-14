@@ -2,7 +2,7 @@ import React from 'react';
 import {Router, Route, Switch} from 'react-router-dom';
 import TodoList from "./TodoList";
 import Create from "./Create";
-import Edit from "./Edit";
+import Detail from "./Detail";
 import Header from "./Header";
 import history from '../history';
 
@@ -14,7 +14,7 @@ const App = () => {
                 <Switch>
                     <Route path='/' exact component={TodoList}/>
                     <Route path='/new' component={Create}/>
-                    <Route path='/:id' component={Edit}/>
+                    <Route path='/:id' component={Detail}/>
                 </Switch>
             </Router>
         </div>

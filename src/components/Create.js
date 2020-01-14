@@ -5,7 +5,9 @@ import {withRouter} from 'react-router';
 
 const Create = (props) => {
     const [title, setTitle] = useState('');
-    const [user, setUser] = useState('');
+    const [detail, setDetail] = useState('');
+    const [goal, setGoal] = useState('');
+    const [date, setDate] = useState('');
 
     return (
         <div className='createSection'>
@@ -16,10 +18,16 @@ const Create = (props) => {
                         <input value={title} onChange={(event) => setTitle(event.target.value)}/>
                     </p>
                     <p>Detail:
-                        <input value={user} onChange={(event) => setUser(event.target.value)}/>
+                        <input value={detail} onChange={(event) => setDetail(event.target.value)}/>
+                    </p>
+                    <p>Goal:
+                        <input value={goal} onChange={(event) => setGoal(event.target.value)}/>
+                    </p>
+                    <p>Start date:
+                        <input value={date} onChange={(event) => setDate(event.target.value)}/>
                     </p>
                     <button onClick={() => {
-                        props.createTask(title, user);
+                        props.createTask(title, detail, goal, date);
                         props.history.goBack()
                     }}>submit
                     </button>
@@ -30,7 +38,7 @@ const Create = (props) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    createTask: (title, user) => dispatch(createTask(title, user))
+    createTask: (title, detail, goal, date) => dispatch(createTask(title, detail, goal, date))
 });
 
 export default withRouter(connect(null, mapDispatchToProps)(Create));
